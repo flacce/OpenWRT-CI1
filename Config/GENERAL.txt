@@ -20,7 +20,7 @@ CONFIG_PACKAGE_luci-app-mosdns=y
 # 定时自动重启
 CONFIG_PACKAGE_luci-app-autoreboot=y
 # Gecoos AC（设备接入控制/企业管理相关，具体功能因源仓库而异）
-CONFIG_PACKAGE_luci-app-gecoosac=y
+CONFIG_PACKAGE_luci-app-gecoosac=n
 # 网速测试（基于 speedtest/iperf 的前端）
 CONFIG_PACKAGE_luci-app-netspeedtest=y
 # 分区扩容/磁盘分区操作辅助
@@ -28,7 +28,7 @@ CONFIG_PACKAGE_luci-app-partexp=y
 # 文件共享（Samba4）
 CONFIG_PACKAGE_luci-app-samba4=y
 # Tailscale（零信任网络）Web 管理
-CONFIG_PACKAGE_luci-app-tailscale=y
+CONFIG_PACKAGE_luci-app-tailscale=n
 # UPnP（端口自动映射）
 CONFIG_PACKAGE_luci-app-upnp=y
 # 增强版网络唤醒（WOL Plus）
