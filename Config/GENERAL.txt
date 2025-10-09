@@ -1,111 +1,214 @@
-#科学插件调整
+# 科学插件调整
+# 启用 HomeProxy（多协议代理管理界面）
 CONFIG_PACKAGE_luci-app-homeproxy=y
-# 软件包: easytier
+
+# 软件包: easytier（自组网/隧道）
+# 启用 EasyTier 核心
 CONFIG_PACKAGE_easytier=y
-# 软件包: luci-app-easytier (EasyTier界面)
+# 启用 luci-app-easytier（EasyTier Web 管理界面）
 CONFIG_PACKAGE_luci-app-easytier=y
-# 软件包: mosdns
+
+# 软件包: mosdns（本地 DNS 解析与过滤）
+# 启用 mosdns 核心
 CONFIG_PACKAGE_mosdns=y
-# 软件包: luci-app-lucky (Lucky管理界面)
+# 启用 luci-app-lucky（Lucky 管理界面，常用于端口转发/内网穿透）
 CONFIG_PACKAGE_luci-app-lucky=y
-# 软件包: luci-app-mosdns (MosDNS界面)
+# 启用 luci-app-mosdns（MosDNS Web 管理界面）
 CONFIG_PACKAGE_luci-app-mosdns=y
-#增加插件
+
+# 增加插件（常用 LuCI 应用）
+# 定时自动重启
 CONFIG_PACKAGE_luci-app-autoreboot=y
+# Gecoos AC（设备接入控制/企业管理相关，具体功能因源仓库而异）
 CONFIG_PACKAGE_luci-app-gecoosac=y
+# 网速测试（基于 speedtest/iperf 的前端）
 CONFIG_PACKAGE_luci-app-netspeedtest=y
+# 分区扩容/磁盘分区操作辅助
 CONFIG_PACKAGE_luci-app-partexp=y
+# 文件共享（Samba4）
 CONFIG_PACKAGE_luci-app-samba4=y
+# Tailscale（零信任网络）Web 管理
 CONFIG_PACKAGE_luci-app-tailscale=y
+# UPnP（端口自动映射）
 CONFIG_PACKAGE_luci-app-upnp=y
+# 增强版网络唤醒（WOL Plus）
 CONFIG_PACKAGE_luci-app-wolplus=y
-#删除插件
+
+# 删除插件（禁用旧版 WOL，改用 wolplus）
 CONFIG_PACKAGE_luci-app-wol=n
-#参数调整
+
+# 参数调整（编译/目标相关）
+# 使用 ccache 加速编译
 CONFIG_CCACHE=y
+# 开发者模式（包含更多调试符号/工具）
 CONFIG_DEVEL=y
+# 生成多设备 Profile
 CONFIG_TARGET_MULTI_PROFILE=y
+# 为每个设备生成独立 rootfs
 CONFIG_TARGET_PER_DEVICE_ROOTFS=y
+# 不生成 initramfs 根文件系统
 CONFIG_TARGET_ROOTFS_INITRAMFS=n
-#内核调整
+
+# 内核调整（驱动与协议支持）
+# 绑定网卡（bonding，聚合/冗余）
 CONFIG_PACKAGE_kmod-bonding=y
+# DSA 框架（分布式交换机架构）
 CONFIG_PACKAGE_kmod-dsa=y
+# Btrfs 文件系统支持
 CONFIG_PACKAGE_kmod-fs-btrfs=y
+# FUSE 用户态文件系统
 CONFIG_PACKAGE_kmod-fuse=y
+# INET 诊断（套接字诊断）
 CONFIG_PACKAGE_kmod-inet-diag=y
+# MPTCP 诊断（多路径 TCP）
 CONFIG_PACKAGE_kmod-inet-mptcp-diag=y
+# MTD 读写（闪存分区读写扩展）
 CONFIG_PACKAGE_kmod-mtd-rw=y
+# Netlink 诊断
 CONFIG_PACKAGE_kmod-netlink-diag=y
+# nftables ARP 支持
 CONFIG_PACKAGE_kmod-nft-arp=y
+# nftables bridge（网桥）支持
 CONFIG_PACKAGE_kmod-nft-bridge=y
+# nftables 连接数限制
 CONFIG_PACKAGE_kmod-nft-connlimit=y
+# nftables 核心模块
 CONFIG_PACKAGE_kmod-nft-core=y
+# nftables dup（数据包复制）支持
 CONFIG_PACKAGE_kmod-nft-dup-inet=y
+# nftables 路由 FIB 支持
 CONFIG_PACKAGE_kmod-nft-fib=y
+# nftables fullcone NAT 支持（提升端口开放兼容性）
 CONFIG_PACKAGE_kmod-nft-fullcone=y
+# nftables NAT 支持
 CONFIG_PACKAGE_kmod-nft-nat=y
+# nftables netdev（接口层）支持
 CONFIG_PACKAGE_kmod-nft-netdev=y
+# nftables 硬件/驱动 offload
 CONFIG_PACKAGE_kmod-nft-offload=y
+# nftables 队列支持（交由用户态处理）
 CONFIG_PACKAGE_kmod-nft-queue=y
+# nftables socket 匹配
 CONFIG_PACKAGE_kmod-nft-socket=y
+# nftables TPROXY（透明代理）
 CONFIG_PACKAGE_kmod-nft-tproxy=y
+# nftables xfrm（IPSec/策略路由）
 CONFIG_PACKAGE_kmod-nft-xfrm=y
+# 声卡核心（音频基础）
 CONFIG_PACKAGE_kmod-sound-core=y
+# TUN/TAP 虚拟网卡
 CONFIG_PACKAGE_kmod-tun=y
+# USB3 控制器
 CONFIG_PACKAGE_kmod-usb3=y
+# USB 音频
 CONFIG_PACKAGE_kmod-usb-audio=y
+# USB 核心
 CONFIG_PACKAGE_kmod-usb-core=y
+# USB DWC3 控制器
 CONFIG_PACKAGE_kmod-usb-dwc3=y
+# USB 网络适配器通用支持
 CONFIG_PACKAGE_kmod-usb-net=y
+# USB CDC-EEM 网卡
 CONFIG_PACKAGE_kmod-usb-net-cdc-eem=y
+# USB CDC-ETHER 网卡
 CONFIG_PACKAGE_kmod-usb-net-cdc-ether=y
+# USB CDC-MBIM 蜂窝网卡
 CONFIG_PACKAGE_kmod-usb-net-cdc-mbim=y
+# USB CDC-NCM 网卡
 CONFIG_PACKAGE_kmod-usb-net-cdc-ncm=y
+# USB CDC-Subset 网卡
 CONFIG_PACKAGE_kmod-usb-net-cdc-subset=y
+# 华为 CDC-NCM 网卡
 CONFIG_PACKAGE_kmod-usb-net-huawei-cdc-ncm=y
+# iPhone USB 网络共享（ipheth）
 CONFIG_PACKAGE_kmod-usb-net-ipheth=y
+# QMI WWAN 通用驱动
 CONFIG_PACKAGE_kmod-usb-net-qmi-wwan=y
+# Fibocom QMI WWAN 适配
 CONFIG_PACKAGE_kmod-usb-net-qmi-wwan-fibocom=y
+# Quectel QMI WWAN 适配
 CONFIG_PACKAGE_kmod-usb-net-qmi-wwan-quectel=y
+# USB RNDIS 网卡
 CONFIG_PACKAGE_kmod-usb-net-rndis=y
+# Realtek RTL8150 USB 网卡
 CONFIG_PACKAGE_kmod-usb-net-rtl8150=y
+# Realtek RTL8152/RTL8153 USB 网卡
 CONFIG_PACKAGE_kmod-usb-net-rtl8152=y
+# USB OHCI 控制器
 CONFIG_PACKAGE_kmod-usb-ohci=y
+# USB 存储支持（U 盘/移动硬盘）
 CONFIG_PACKAGE_kmod-usb-storage=y
+# USB 存储扩展（额外文件系统/特性）
 CONFIG_PACKAGE_kmod-usb-storage-extras=y
+# USB UAS（USB Attached SCSI）加速
 CONFIG_PACKAGE_kmod-usb-storage-uas=y
+# USB UHCI 控制器
 CONFIG_PACKAGE_kmod-usb-uhci=y
+# USB XHCI 控制器（常见于 USB3）
 CONFIG_PACKAGE_kmod-usb-xhci=y
+# WireGuard VPN 内核模块
 CONFIG_PACKAGE_kmod-wireguard=y
-#组件调整
+
+# 组件调整（系统工具/库）
+# 自动收集系统信息（CPU/负载等）
 CONFIG_PACKAGE_autocore=y
+# 自动挂载存储设备
 CONFIG_PACKAGE_automount=y
+# 块设备 UUID/标签识别（blkid）
 CONFIG_PACKAGE_blkid=y
+# cfdisk 分区工具（交互界面）
 CONFIG_PACKAGE_cfdisk=y
+# cgdisk 分区工具（GPT 交互界面）
 CONFIG_PACKAGE_cgdisk=y
+# CoreMark 基准测试
 CONFIG_PACKAGE_coremark=y
+# CPU 频率调节工具
 CONFIG_PACKAGE_cpufreq=y
+# dmesg 查看内核日志
 CONFIG_PACKAGE_dmesg=y
+# fdisk 分区工具（MBR）
 CONFIG_PACKAGE_fdisk=y
+# gdisk 分区工具（GPT）
 CONFIG_PACKAGE_gdisk=y
+# htop 系统监控
 CONFIG_PACKAGE_htop=y
+# iperf3 网络性能测试
 CONFIG_PACKAGE_iperf3=y
+# ip-full（完整 iproute2 功能集）
 CONFIG_PACKAGE_ip-full=y
+# iOS 设备交互库（libimobiledevice）
 CONFIG_PACKAGE_libimobiledevice=y
+# lsblk 查看块设备拓扑
 CONFIG_PACKAGE_lsblk=y
+# LuCI 基础包
 CONFIG_PACKAGE_luci-base=y
+# LuCI 兼容库（旧版接口兼容）
 CONFIG_PACKAGE_luci-compat=y
+# LuCI 基础库
 CONFIG_PACKAGE_luci-lib-base=y
+# LuCI 包管理（opkg 前端）
 CONFIG_PACKAGE_luci-lib-ipkg=y
+# LuCI Lua 运行时支持
 CONFIG_PACKAGE_luci-lua-runtime=y
+# LuCI 中继协议支持（relay）
 CONFIG_PACKAGE_luci-proto-relay=y
+# MMC/SD 卡工具
 CONFIG_PACKAGE_mmc-utils=y
+# NAND 闪存工具
 CONFIG_PACKAGE_nand-utils=y
+# OpenSSH 密钥生成
 CONFIG_PACKAGE_openssh-keygen=y
+# OpenSSH SFTP 服务器
 CONFIG_PACKAGE_openssh-sftp-server=y
+# OpenSSL 工具集（证书/加密）
 CONFIG_PACKAGE_openssl-util=y
+# Bonding 协议支持（用户态/网络层）
 CONFIG_PACKAGE_proto-bonding=y
+# sfdisk 分区工具（脚本化）
 CONFIG_PACKAGE_sfdisk=y
+# sgdisk 分区工具（GPT 脚本化）
 CONFIG_PACKAGE_sgdisk=y
+# usbmuxd（Apple 设备 USB 复用守护）
 CONFIG_PACKAGE_usbmuxd=y
+# usbutils（lsusb 等 USB 工具）
 CONFIG_PACKAGE_usbutils=y
