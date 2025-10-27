@@ -30,9 +30,9 @@ CONFIG_PACKAGE_luci-app-samba4=y
 # Tailscale（零信任网络）Web 管理
 CONFIG_PACKAGE_luci-app-tailscale=n
 # UPnP（端口自动映射）
-CONFIG_PACKAGE_luci-app-upnp=y
+CONFIG_PACKAGE_luci-app-upnp=nn
 # 增强版网络唤醒（WOL Plus）
-CONFIG_PACKAGE_luci-app-wolplus=y
+CONFIG_PACKAGE_luci-app-wolplus=n
 
 # 删除插件（禁用旧版 WOL，改用 wolplus）
 CONFIG_PACKAGE_luci-app-wol=n
