@@ -16,8 +16,8 @@ on:
         required: false
         type: string
       TEST:
-        description: '仅输出配置文件，不编译固件。'
-        default: 'false'
+        description: "仅输出配置文件，不编译固件。"
+        default: "false"
         required: false
         type: boolean
 
@@ -33,8 +33,8 @@ jobs:
       #max-parallel: 3
       matrix:
         CONFIG: [IPQ60XX-WIFI-YES]
-        SOURCE: [LiBwrt/openwrt-6.x]
-        BRANCH: [k6.18-dev]
+        SOURCE: [VIKINGYFY/immortalwrt]
+        BRANCH: [manin]
 
     #调用公用编译核心WRT-CORE.yml
     uses: ./.github/workflows/WRT-CORE.yml
